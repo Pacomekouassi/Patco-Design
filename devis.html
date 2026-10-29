@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="fr" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demander un Devis — Patco Gesign | Estimation Rapide</title>
+    <meta
+      name="description"
+      content="Obtenez un devis gratuit et personnalisé pour vos projets de design graphique ou développement web."
+    />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                DEFAULT: "#2563EB",
+                hover: "#1D4ED8",
+                light: "#38BDF8",
+                dark: "#0B1F3A",
+                card: "#0E2547",
+                deeper: "#071528",
+              },
+            },
+            fontFamily: {
+              heading: ["Montserrat", "sans-serif"],
+              sans: ["Poppins", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body
+    class="bg-[#0B1F3A] text-neutral-200 antialiased selection:bg-[#2563EB] selection:text-white"
+  >
+    <!-- ================= NAVBAR ================= -->
+    <header
+      class="fixed top-0 left-0 right-0 z-50 bg-[#0B1F3A]/90 backdrop-blur-md border-b border-white/10"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          <!-- Logo -->
+          <a href="index.html" class="flex items-center gap-3 group">
+            <div
+              class="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#2563EB] to-[#38BDF8] flex items-center justify-center text-white font-black text-lg shadow-lg shadow-blue-500/30 group-hover:scale-105 transition-transform"
+            >
+              PG
+            </div>
+            <div>
+              <span
+                class="text-lg font-black tracking-tight text-white block leading-none font-heading"
+              >
+                Patco <span class="text-[#38BDF8]">Design</span>
+              </span>
+              <span
+                class="text-[10px] text-neutral-400 font-medium tracking-wide uppercase"
+              >
+                Design & Web
+              </span>
+            </div>
+          </a>
+
+          <!-- Desktop Navigation -->
+          <nav class="hidden lg:flex items-center gap-7">
+            <a href="index.html" class="nav-link active">Accueil</a>
+            <a href="a-propos.html" class="nav-link">À propos</a>
+            <a href="services.html" class="nav-link">Services</a>
+            <a href="portfolio.html" class="nav-link">Portfolio</a>
+            <a href="processus.html" class="nav-link">Processus</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+          </nav>
+
+          <!-- Right Action CTAs -->
+          <div class="hidden sm:flex items-center gap-3">
+            <a href="devis.html" class="btn-primary text-xs !py-2.5 !px-5">
+              <span>Demander un devis</span>
+              <svg
+                class="w-3.5 h-3.5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M14 5l7 7m0 0l-7 7m7-7H3"
+                />
+              </svg>
+            </a>
+          </div>
+
+          <!-- Mobile Menu Trigger -->
+          <button
+            id="mobile-menu-btn"
+            class="lg:hidden p-2 text-neutral-300 hover:text-white rounded-lg focus:outline-none"
+            aria-label="Menu"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16m-7 6h7"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Drawer -->
+      <div
+        id="mobile-menu"
+        class="hidden lg:hidden bg-[#071528] border-b border-white/10 px-6 py-6 space-y-4"
+      >
+        <div
+          class="flex items-center justify-between pb-4 border-b border-white/10"
+        >
+          <span class="text-sm font-bold text-white uppercase tracking-wider"
+            >Menu Patco Design</span
+          >
+          <button
+            id="mobile-menu-close"
+            class="text-neutral-400 hover:text-white"
+          >
+            <svg
+              class="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+        <div class="grid grid-cols-2 gap-3 text-sm">
+          <a
+            href="index.html"
+            class="mobile-nav-link text-white font-bold p-2 rounded-lg bg-white/5"
+            >Accueil</a
+          >
+          <a
+            href="a-propos.html"
+            class="mobile-nav-link text-neutral-300 p-2 rounded-lg hover:bg-white/5"
+            >À propos</a
+          >
+          <a
+            href="services.html"
+            class="mobile-nav-link text-neutral-300 p-2 rounded-lg hover:bg-white/5"
+            >Services</a
+          >
+          <a
+            href="portfolio.html"
+            class="mobile-nav-link text-neutral-300 p-2 rounded-lg hover:bg-white/5"
+            >Portfolio</a
+          >
+          <a
+            href="processus.html"
+            class="mobile-nav-link text-neutral-300 p-2 rounded-lg hover:bg-white/5"
+            >Processus</a
+          >
+          <a
+            href="devis.html"
+            class="mobile-nav-link text-neutral-300 p-2 rounded-lg hover:bg-white/5"
+            >Devis</a
+          >
+          <a
+            href="contact.html"
+            class="mobile-nav-link text-neutral-300 p-2 rounded-lg hover:bg-white/5"
+            >Contact</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="pt-32 pb-24">
+      <!-- Header -->
+      <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 text-center">
+        <div class="badge-pill mb-4">Devis & Estimation gratuite</div>
+        <h1
+          class="text-4xl sm:text-5xl md:text-6xl font-black text-white font-heading tracking-tight mb-4"
+        >
+          Vous avez un projet ? Parlons-en.
+        </h1>
+        <p
+          class="text-neutral-300 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto"
+        >
+          Vous avez besoin d’une identité visuelle, d’un visuel publicitaire ou
+          d’un site web ? Décrivez-moi votre projet et je vous répondrai avec
+          une proposition adaptée sous 24h.
+        </p>
+      </section>
+
+      <!-- Quote Form Container -->
+      <section class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Confirmation Box (hidden by default) -->
+        <div
+          id="quote-success"
+          class="hidden p-8 sm:p-12 rounded-3xl bg-[#0E2547] border border-[#2563EB]/50 text-center shadow-2xl relative overflow-hidden"
+        >
+          <div
+            class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400"
+          >
+            <svg
+              class="w-8 h-8"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold text-white font-heading mb-2">
+            Merci
+            <span id="success-client-name" class="text-[#38BDF8]"></span> !
+            Votre demande a été reçue.
+          </h3>
+          <p class="text-neutral-300 text-sm max-w-md mx-auto mb-8">
+            Patco a bien pris note de votre projet de
+            <strong id="success-project-type" class="text-white"></strong>. Un
+            devis estimatif vous sera transmis sous 24 heures ouvrées.
+          </p>
+          <div
+            class="flex flex-col sm:flex-row items-center justify-center gap-4"
+          >
+            <a
+              id="quote-whatsapp-link"
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-primary !bg-emerald-600 hover:!bg-emerald-500 w-full sm:w-auto"
+            >
+              <span>Transférer aussi sur WhatsApp</span>
+            </a>
+            <button
+              onclick="location.reload()"
+              class="btn-secondary w-full sm:w-auto text-xs"
+            >
+              Soumettre un autre projet
+            </button>
+          </div>
+        </div>
+
+        <!-- Main Form -->
+        <form
+          id="quote-form"
+          class="p-8 sm:p-12 rounded-3xl bg-[#0E2547] border border-white/10 shadow-2xl space-y-6"
+        >
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <!-- Nom complet -->
+            <div>
+              <label
+                for="q-name"
+                class="block text-xs font-semibold text-neutral-300 mb-2"
+              >
+                Nom complet ou Entreprise <span class="text-[#38BDF8]">*</span>
+              </label>
+              <input
+                type="text"
+                id="q-name"
+                required
+                placeholder="Ex: Jean Kouassi"
+                class="w-full px-4 py-3 rounded-xl bg-[#071528] border border-white/10 text-white placeholder-neutral-500 text-sm focus:border-[#2563EB] focus:outline-none transition-colors"
+              />
+            </div>
+
+            <!-- Email -->
+            <div>
+              <label
+                for="q-email"
+                class="block text-xs font-semibold text-neutral-300 mb-2"
+              >
+                Adresse email professionnelle
+                <span class="text-[#38BDF8]">*</span>
+              </label>
+              <input
+                type="email"
+                id="q-email"
+                required
+                placeholder="jean@exemple.com"
+                class="w-full px-4 py-3 rounded-xl bg-[#071528] border border-white/10 text-white placeholder-neutral-500 text-sm focus:border-[#2563EB] focus:outline-none transition-colors"
+              />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <!-- Téléphone -->
+            <div>
+              <label
+                for="q-phone"
+                class="block text-xs font-semibold text-neutral-300 mb-2"
+              >
+                Téléphone / WhatsApp <span class="text-[#38BDF8]">*</span>
+              </label>
+              <input
+                type="tel"
+                id="q-phone"
+                required
+                placeholder="Ex: +225 07 00 00 00 00"
+                class="w-full px-4 py-3 rounded-xl bg-[#071528] border border-white/10 text-white placeholder-neutral-500 text-sm focus:border-[#2563EB] focus:outline-none transition-colors"
+              />
+            </div>
+
+            <!-- Type de projet -->
+            <div>
+              <label
+                for="q-type"
+                class="block text-xs font-semibold text-neutral-300 mb-2"
+              >
+                Type de projet souhaité <span class="text-[#38BDF8]">*</span>
+              </label>
+              <select
+                id="q-type"
+                class="w-full px-4 py-3 rounded-xl bg-[#071528] border border-white/10 text-white text-sm focus:border-[#2563EB] focus:outline-none transition-colors"
+              >
+                <option value="Identité visuelle & Logo">
+                  Identité visuelle & Logo
+                </option>
+                <option value="Affiche, Flyer & Print">
+                  Affiche, Flyer & Print
+                </option>
+                <option value="Site web vitrine">Site web vitrine</option>
+                <option value="Site E-commerce">Site E-commerce</option>
+                <option value="Application web & Dashboard">
+                  Application web & Dashboard
+                </option>
+                <option value="Création contenus réseaux sociaux">
+                  Création contenus réseaux sociaux
+                </option>
+                <option value="Packaging & Étiquettes">
+                  Packaging & Étiquettes
+                </option>
+                <option value="Refonte / Amélioration de site">
+                  Refonte / Amélioration de site
+                </option>
+                <option value="Autre projet sur mesure">
+                  Autre projet sur mesure
+                </option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <!-- Budget estimatif -->
+            <div>
+              <label
+                for="q-budget"
+                class="block text-xs font-semibold text-neutral-300 mb-2"
+              >
+                Budget estimatif (FCFA)
+              </label>
+              <select
+                id="q-budget"
+                class="w-full px-4 py-3 rounded-xl bg-[#071528] border border-white/10 text-white text-sm focus:border-[#2563EB] focus:outline-none transition-colors"
+              >
+                <option value="< 150 000 FCFA (&lt; 230 €)">
+                  &lt; 150 000 FCFA (&lt; 230 €)
+                </option>
+                <option value="150 000 - 400 000 FCFA" selected>
+                  150 000 - 400 000 FCFA (~230 - 600 €)
+                </option>
+                <option value="400 000 - 1 000 000 FCFA">
+                  400 000 - 1 000 000 FCFA (~600 - 1 500 €)
+                </option>
+                <option value="+ 1 000 000 FCFA">
+                  + 1 000 000 FCFA (~1 500 € +)
+                </option>
+              </select>
+            </div>
+
+            <!-- Délai -->
+            <div>
+              <label
+                for="q-delay"
+                class="block text-xs font-semibold text-neutral-300 mb-2"
+              >
+                Délai souhaité
+              </label>
+              <select
+                id="q-delay"
+                class="w-full px-4 py-3 rounded-xl bg-[#071528] border border-white/10 text-white text-sm focus:border-[#2563EB] focus:outline-none transition-colors"
+              >
+                <option value="Urgent (&lt; 1 semaine)">
+                  Urgent (&lt; 1 semaine)
+                </option>
+                <option value="2 à 3 semaines" selected>2 à 3 semaines</option>
+                <option value="1 mois">1 mois</option>
+                <option value="Flexible (+ de 1 mois)">
+                  Flexible (+ de 1 mois)
+                </option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Description -->
+          <div>
+            <label
+              for="q-desc"
+              class="block text-xs font-semibold text-neutral-300 mb-2"
+            >
+              Description détaillée du projet
+              <span class="text-[#38BDF8]">*</span>
+            </label>
+            <textarea
+              id="q-desc"
+              required
+              rows="4"
+              placeholder="Décrivez votre activité, vos objectifs, les supports souhaités et toute précision utile..."
+              class="w-full px-4 py-3 rounded-xl bg-[#071528] border border-white/10 text-white placeholder-neutral-500 text-sm focus:border-[#2563EB] focus:outline-none transition-colors"
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            class="w-full btn-primary !py-4 text-sm cursor-pointer shadow-xl shadow-blue-500/25"
+          >
+            <span>Envoyer ma demande de devis</span>
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M14 5l7 7m0 0l-7 7m7-7H3"
+              />
+            </svg>
+          </button>
+
+          <p class="text-[11px] text-neutral-400 text-center">
+            🔒 Vos informations restent strictement confidentielles et ne seront
+            jamais partagées.
+          </p>
+        </form>
+      </section>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer
+      class="bg-[#071528] border-t border-white/10 pt-16 pb-12 text-sm text-neutral-400"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+          <div class="space-y-4">
+            <div class="flex items-center gap-2">
+              <div
+                class="w-8 h-8 rounded-lg bg-[#2563EB] flex items-center justify-center text-white font-bold text-sm"
+              >
+                PG
+              </div>
+              <span class="text-white font-bold text-base font-heading"
+                >Patco Design</span
+              >
+            </div>
+            <p class="text-xs text-neutral-400 leading-relaxed">
+              Studio créatif ivoirien spécialisé en design graphique de pointe
+              et dévéloppement web.
+            </p>
+            <div class="text-xs text-[#38BDF8] font-mono">
+              Abidjan, Côte d’Ivoire.
+            </div>
+          </div>
+
+          <div>
+            <div
+              class="text-white font-bold text-xs uppercase tracking-wider mb-4 font-heading"
+            >
+              Navigation
+            </div>
+            <ul class="space-y-2 text-xs">
+              <li>
+                <a href="index.html" class="hover:text-white transition-colors"
+                  >Accueil</a
+                >
+              </li>
+              <li>
+                <a
+                  href="a-propos.html"
+                  class="hover:text-white transition-colors"
+                  >À propos</a
+                >
+              </li>
+              <li>
+                <a
+                  href="services.html"
+                  class="hover:text-white transition-colors"
+                  >Mes Services</a
+                >
+              </li>
+              <li>
+                <a
+                  href="portfolio.html"
+                  class="hover:text-white transition-colors"
+                  >Portfolio & Réalisations</a
+                >
+              </li>
+              <li>
+                <a
+                  href="processus.html"
+                  class="hover:text-white transition-colors"
+                  >Méthode de travail</a
+                >
+              </li>
+              <li>
+                <a href="devis.html" class="hover:text-white transition-colors"
+                  >Demander un Devis</a
+                >
+              </li>
+              <li>
+                <a
+                  href="contact.html"
+                  class="hover:text-white transition-colors"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <div
+              class="text-white font-bold text-xs uppercase tracking-wider mb-4 font-heading"
+            >
+              Services
+            </div>
+            <ul class="space-y-2 text-xs">
+              <li>
+                <a
+                  href="services.html#design-graphique"
+                  class="hover:text-white transition-colors"
+                  >Identité Visuelle & Logo</a
+                >
+              </li>
+              <li>
+                <a
+                  href="services.html#design-graphique"
+                  class="hover:text-white transition-colors"
+                  >Affiches, Flyers & Print</a
+                >
+              </li>
+              <li>
+                <a
+                  href="services.html#developpement-web"
+                  class="hover:text-white transition-colors"
+                  >Site Web Vitrine & Landing Page</a
+                >
+              </li>
+              <li>
+                <a
+                  href="services.html#developpement-web"
+                  class="hover:text-white transition-colors"
+                  >Application Web & Dashboard</a
+                >
+              </li>
+              <li>
+                <a
+                  href="services.html#identite-communication"
+                  class="hover:text-white transition-colors"
+                  >Stratégie Réseaux Sociaux</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="space-y-4">
+            <div
+              class="text-white font-bold text-xs uppercase tracking-wider mb-4 font-heading"
+            >
+              Contact Direct
+            </div>
+            <p class="text-xs text-neutral-300">
+              Téléphone / WhatsApp :<br />
+              <a
+                href="tel:+2250759142041"
+                class="text-white font-semibold hover:text-[#38BDF8]"
+                >+225 0759142041</a
+              >
+            </p>
+            <p class="text-xs text-neutral-300">
+              Email professionnel :<br />
+              <a
+                href="mailto:kyaopacome76@gmail.com"
+                class="text-white font-semibold hover:text-[#38BDF8]"
+                >kyaopacome76@gmail.com</a
+              >
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs text-neutral-400 gap-4"
+        >
+          <div>
+            © 2026 Patco Design. Tous droits réservés. Conçu et développé en
+            Côte d’Ivoire.
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ================= FLOATING WHATSAPP BUTTON ================= -->
+    <a
+      href="https://wa.me/2250759142041?text=Bonjour%20Patco%20Design,%20je%20souhaite%20discuter%20d%E2%80%99un%20projet%20avec%20vous."
+      target="_blank"
+      rel="noopener noreferrer"
+      class="fixed bottom-6 right-6 z-40 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white p-3.5 rounded-full shadow-2xl shadow-emerald-500/30 flex items-center gap-2 group transition-all duration-300 hover:scale-105"
+      aria-label="Contacter sur WhatsApp"
+    >
+      <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+        <path
+          d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"
+        />
+      </svg>
+      <span class="text-xs font-bold pr-1 hidden sm:inline"
+        >WhatsApp Direct</span
+      >
+    </a>
+
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>

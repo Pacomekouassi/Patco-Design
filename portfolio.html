@@ -1,0 +1,862 @@
+<!doctype html>
+<html lang="fr" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio — Patco Design | Réalisations Graphisme & Web</title>
+    <meta
+      name="description"
+      content="Découvrez les réalisations de Patco Design : logos, affiches, plateformes web et campagnes publicitaires."
+    />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                DEFAULT: "#2563EB",
+                hover: "#1D4ED8",
+                light: "#38BDF8",
+                dark: "#0B1F3A",
+                card: "#0E2547",
+                deeper: "#071528",
+              },
+            },
+            fontFamily: {
+              heading: ["Montserrat", "sans-serif"],
+              sans: ["Poppins", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body
+    class="bg-[#0B1F3A] text-neutral-200 antialiased selection:bg-[#2563EB] selection:text-white"
+  >
+    <!-- ================= NAVBAR ================= -->
+    <header
+      class="fixed top-0 left-0 right-0 z-50 bg-[#0B1F3A]/90 backdrop-blur-md border-b border-white/10"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          <!-- Logo -->
+          <a href="index.html" class="flex items-center gap-3 group">
+            <div
+              class="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#2563EB] to-[#38BDF8] flex items-center justify-center text-white font-black text-lg shadow-lg shadow-blue-500/30 group-hover:scale-105 transition-transform"
+            >
+              PG
+            </div>
+            <div>
+              <span
+                class="text-lg font-black tracking-tight text-white block leading-none font-heading"
+              >
+                Patco <span class="text-[#38BDF8]">Design</span>
+              </span>
+              <span
+                class="text-[10px] text-neutral-400 font-medium tracking-wide uppercase"
+              >
+                Design & Web
+              </span>
+            </div>
+          </a>
+
+          <!-- Desktop Navigation -->
+          <nav class="hidden lg:flex items-center gap-7">
+            <a href="index.html" class="nav-link active">Accueil</a>
+            <a href="a-propos.html" class="nav-link">À propos</a>
+            <a href="services.html" class="nav-link">Services</a>
+            <a href="portfolio.html" class="nav-link">Portfolio</a>
+            <a href="processus.html" class="nav-link">Processus</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+          </nav>
+
+          <!-- Right Action CTAs -->
+          <div class="hidden sm:flex items-center gap-3">
+            <a href="devis.html" class="btn-primary text-xs !py-2.5 !px-5">
+              <span>Demander un devis</span>
+              <svg
+                class="w-3.5 h-3.5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M14 5l7 7m0 0l-7 7m7-7H3"
+                />
+              </svg>
+            </a>
+          </div>
+
+          <!-- Mobile Menu Trigger -->
+          <button
+            id="mobile-menu-btn"
+            class="lg:hidden p-2 text-neutral-300 hover:text-white rounded-lg focus:outline-none"
+            aria-label="Menu"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16m-7 6h7"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Drawer -->
+      <div
+        id="mobile-menu"
+        class="hidden lg:hidden bg-[#071528] border-b border-white/10 px-6 py-6 space-y-4"
+      >
+        <div
+          class="flex items-center justify-between pb-4 border-b border-white/10"
+        >
+          <span class="text-sm font-bold text-white uppercase tracking-wider"
+            >Menu Patco Design</span
+          >
+          <button
+            id="mobile-menu-close"
+            class="text-neutral-400 hover:text-white"
+          >
+            <svg
+              class="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+        <div class="grid grid-cols-2 gap-3 text-sm">
+          <a
+            href="index.html"
+            class="mobile-nav-link text-white font-bold p-2 rounded-lg bg-white/5"
+            >Accueil</a
+          >
+          <a
+            href="a-propos.html"
+            class="mobile-nav-link text-neutral-300 p-2 rounded-lg hover:bg-white/5"
+            >À propos</a
+          >
+          <a
+            href="services.html"
+            class="mobile-nav-link text-neutral-300 p-2 rounded-lg hover:bg-white/5"
+            >Services</a
+          >
+          <a
+            href="portfolio.html"
+            class="mobile-nav-link text-neutral-300 p-2 rounded-lg hover:bg-white/5"
+            >Portfolio</a
+          >
+          <a
+            href="processus.html"
+            class="mobile-nav-link text-neutral-300 p-2 rounded-lg hover:bg-white/5"
+            >Processus</a
+          >
+          <a
+            href="devis.html"
+            class="mobile-nav-link text-neutral-300 p-2 rounded-lg hover:bg-white/5"
+            >Devis</a
+          >
+          <a
+            href="contact.html"
+            class="mobile-nav-link text-neutral-300 p-2 rounded-lg hover:bg-white/5"
+            >Contact</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="pt-32 pb-24">
+      <!-- Header -->
+      <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 text-center">
+        <div class="badge-pill mb-4">Galerie de Réalisations</div>
+        <h1
+          class="text-4xl sm:text-5xl md:text-6xl font-black text-white font-heading tracking-tight mb-6"
+        >
+          Quelques projets
+        </h1>
+        <p
+          class="text-neutral-300 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed mb-8"
+        >
+          Une sélection de projets illustrant la créativité, l'exigence
+          graphique et la qualité technique du studio Patco Design.
+        </p>
+
+        <!-- Category Filter Pills -->
+        <div
+          class="flex flex-wrap items-center justify-center gap-2 max-w-2xl mx-auto"
+        >
+          <button
+            class="portfolio-filter-btn px-4 py-2 rounded-xl text-xs font-semibold transition-all border cursor-pointer bg-[#2563EB] text-white border-[#2563EB]"
+            data-filter="all"
+          >
+            Tous les projets
+          </button>
+          <button
+            class="portfolio-filter-btn px-4 py-2 rounded-xl text-xs font-semibold transition-all border cursor-pointer bg-white/5 text-neutral-400 border-white/10 hover:text-white"
+            data-filter="design-graphique"
+          >
+            Design graphique
+          </button>
+          <button
+            class="portfolio-filter-btn px-4 py-2 rounded-xl text-xs font-semibold transition-all border cursor-pointer bg-white/5 text-neutral-400 border-white/10 hover:text-white"
+            data-filter="branding"
+          >
+            Branding
+          </button>
+          <button
+            class="portfolio-filter-btn px-4 py-2 rounded-xl text-xs font-semibold transition-all border cursor-pointer bg-white/5 text-neutral-400 border-white/10 hover:text-white"
+            data-filter="web"
+          >
+            Web & App
+          </button>
+          <button
+            class="portfolio-filter-btn px-4 py-2 rounded-xl text-xs font-semibold transition-all border cursor-pointer bg-white/5 text-neutral-400 border-white/10 hover:text-white"
+            data-filter="reseaux-sociaux"
+          >
+            Réseaux sociaux
+          </button>
+        </div>
+      </section>
+
+      <!-- Projects Grid -->
+      <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Project 1: Kanya Cacao & Café -->
+          <div
+            class="portfolio-card-item glass-card overflow-hidden group"
+            data-category="branding"
+          >
+            <div class="relative overflow-hidden aspect-[4/3]">
+              <img
+                src="assets/images/project-branding.jpg"
+                alt="Kanya Cacao & Café"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <span
+                class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-[#0B1F3A]/90 text-[10px] font-semibold text-[#38BDF8] border border-white/10 uppercase tracking-wider"
+              >
+                Branding
+              </span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-white font-heading mb-2">
+                Kanya Cacao & Café
+              </h3>
+              <p class="text-xs text-neutral-300 mb-4 leading-relaxed">
+                Identité visuelle de prestige et packaging éco-responsable pour
+                une marque ivoirienne de cacao artisanal.
+              </p>
+              <div class="flex flex-wrap gap-1 mb-4">
+                <span
+                  class="px-2 py-0.5 rounded bg-white/5 text-[10px] text-neutral-300 font-mono"
+                  >Illustrator</span
+                >
+                <span
+                  class="px-2 py-0.5 rounded bg-white/5 text-[10px] text-neutral-300 font-mono"
+                  >Photoshop</span
+                >
+                <span
+                  class="px-2 py-0.5 rounded bg-white/5 text-[10px] text-neutral-300 font-mono"
+                  >Packaging 3D</span
+                >
+              </div>
+              <div
+                class="flex items-center justify-between pt-4 border-t border-white/10"
+              >
+                <span class="text-xs text-neutral-400">Abidjan, 2026</span>
+                <button
+                  class="open-project-btn btn-primary text-xs !py-2 !px-3 cursor-pointer"
+                  data-project-id="proj-kanya"
+                >
+                  <span>Voir le projet</span>
+                  <svg
+                    class="w-3.5 h-3.5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2: AfriPay Web App -->
+          <div
+            class="portfolio-card-item glass-card overflow-hidden group"
+            data-category="web"
+          >
+            <div class="relative overflow-hidden aspect-[4/3]">
+              <img
+                src="assets/images/project-web.jpg"
+                alt="AfriPay Web App & Dashboard"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <span
+                class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-[#0B1F3A]/90 text-[10px] font-semibold text-[#38BDF8] border border-white/10 uppercase tracking-wider"
+              >
+                Web
+              </span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-white font-heading mb-2">
+                AfriPay Web App & Dashboard
+              </h3>
+              <p class="text-xs text-neutral-300 mb-4 leading-relaxed">
+                Application web financière et tableau de bord SaaS pour la
+                gestion des transactions marchandes en Afrique de l’Ouest.
+              </p>
+              <div class="flex flex-wrap gap-1 mb-4">
+                <span
+                  class="px-2 py-0.5 rounded bg-white/5 text-[10px] text-[#38BDF8] font-mono"
+                  >React</span
+                >
+                <span
+                  class="px-2 py-0.5 rounded bg-white/5 text-[10px] text-[#38BDF8] font-mono"
+                  >TypeScript</span
+                >
+                <span
+                  class="px-2 py-0.5 rounded bg-white/5 text-[10px] text-[#38BDF8] font-mono"
+                  >Laravel API</span
+                >
+              </div>
+              <div
+                class="flex items-center justify-between pt-4 border-t border-white/10"
+              >
+                <span class="text-xs text-neutral-400">Fintech 2026</span>
+                <button
+                  class="open-project-btn btn-primary text-xs !py-2 !px-3 cursor-pointer"
+                  data-project-id="proj-afripay"
+                >
+                  <span>Voir le projet</span>
+                  <svg
+                    class="w-3.5 h-3.5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3: Festival N’Zassa -->
+          <div
+            class="portfolio-card-item glass-card overflow-hidden group"
+            data-category="design-graphique"
+          >
+            <div class="relative overflow-hidden aspect-[4/3]">
+              <img
+                src="assets/images/project-poster.jpg"
+                alt="Festival Afro-Futur N’Zassa"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <span
+                class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-[#0B1F3A]/90 text-[10px] font-semibold text-[#38BDF8] border border-white/10 uppercase tracking-wider"
+              >
+                Design graphique
+              </span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-white font-heading mb-2">
+                Festival Afro-Futur N’Zassa
+              </h3>
+              <p class="text-xs text-neutral-300 mb-4 leading-relaxed">
+                Campagne d’affichage visuel et direction artistique globale pour
+                le grand festival des cultures numériques d’Abidjan.
+              </p>
+              <div class="flex flex-wrap gap-1 mb-4">
+                <span
+                  class="px-2 py-0.5 rounded bg-white/5 text-[10px] text-neutral-300 font-mono"
+                  >Illustrator</span
+                >
+                <span
+                  class="px-2 py-0.5 rounded bg-white/5 text-[10px] text-neutral-300 font-mono"
+                  >Photoshop</span
+                >
+                <span
+                  class="px-2 py-0.5 rounded bg-white/5 text-[10px] text-neutral-300 font-mono"
+                  >Affiches 4x3</span
+                >
+              </div>
+              <div
+                class="flex items-center justify-between pt-4 border-t border-white/10"
+              >
+                <span class="text-xs text-neutral-400">Culture 2025</span>
+                <button
+                  class="open-project-btn btn-primary text-xs !py-2 !px-3 cursor-pointer"
+                  data-project-id="proj-nzassa"
+                >
+                  <span>Voir le projet</span>
+                  <svg
+                    class="w-3.5 h-3.5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4: Aya Glow Skincare -->
+          <div
+            class="portfolio-card-item glass-card overflow-hidden group"
+            data-category="reseaux-sociaux"
+          >
+            <div class="relative overflow-hidden aspect-[4/3]">
+              <img
+                src="assets/images/project-branding.jpg"
+                alt="Aya Glow Skincare"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <span
+                class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-[#0B1F3A]/90 text-[10px] font-semibold text-[#38BDF8] border border-white/10 uppercase tracking-wider"
+              >
+                Réseaux sociaux
+              </span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-white font-heading mb-2">
+                Aya Glow Skincare
+              </h3>
+              <p class="text-xs text-neutral-300 mb-4 leading-relaxed">
+                Pack de 30 visuels Instagram et TikTok pour booster l'engagement
+                et les commandes directes sur WhatsApp.
+              </p>
+              <div class="flex flex-wrap gap-1 mb-4">
+                <span
+                  class="px-2 py-0.5 rounded bg-white/5 text-[10px] text-neutral-300 font-mono"
+                  >Figma</span
+                >
+                <span
+                  class="px-2 py-0.5 rounded bg-white/5 text-[10px] text-neutral-300 font-mono"
+                  >Canva Pro</span
+                >
+                <span
+                  class="px-2 py-0.5 rounded bg-white/5 text-[10px] text-neutral-300 font-mono"
+                  >Carrousels</span
+                >
+              </div>
+              <div
+                class="flex items-center justify-between pt-4 border-t border-white/10"
+              >
+                <span class="text-xs text-neutral-400">Social 2025</span>
+                <button
+                  class="open-project-btn btn-primary text-xs !py-2 !px-3 cursor-pointer"
+                  data-project-id="proj-ayaglow"
+                >
+                  <span>Voir le projet</span>
+                  <svg
+                    class="w-3.5 h-3.5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 5: Ivoire BTP -->
+          <div
+            class="portfolio-card-item glass-card overflow-hidden group"
+            data-category="web"
+          >
+            <div class="relative overflow-hidden aspect-[4/3]">
+              <img
+                src="assets/images/creative-workspace.jpg"
+                alt="Ivoire BTP Architecture"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <span
+                class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-[#0B1F3A]/90 text-[10px] font-semibold text-[#38BDF8] border border-white/10 uppercase tracking-wider"
+              >
+                Web
+              </span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-white font-heading mb-2">
+                Ivoire BTP Architecture
+              </h3>
+              <p class="text-xs text-neutral-300 mb-4 leading-relaxed">
+                Site vitrine immersif et catalogue de réalisations
+                architecturales haut de gamme à Abidjan et Yamoussoukro.
+              </p>
+              <div class="flex flex-wrap gap-1 mb-4">
+                <span
+                  class="px-2 py-0.5 rounded bg-white/5 text-[10px] text-[#38BDF8] font-mono"
+                  >HTML5 / CSS3</span
+                >
+                <span
+                  class="px-2 py-0.5 rounded bg-white/5 text-[10px] text-[#38BDF8] font-mono"
+                  >JavaScript</span
+                >
+                <span
+                  class="px-2 py-0.5 rounded bg-white/5 text-[10px] text-[#38BDF8] font-mono"
+                  >SEO Local</span
+                >
+              </div>
+              <div
+                class="flex items-center justify-between pt-4 border-t border-white/10"
+              >
+                <span class="text-xs text-neutral-400">Vitrine 2025</span>
+                <button
+                  class="open-project-btn btn-primary text-xs !py-2 !px-3 cursor-pointer"
+                  data-project-id="proj-ivoirebtp"
+                >
+                  <span>Voir le projet</span>
+                  <svg
+                    class="w-3.5 h-3.5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Notice note -->
+        <div
+          class="mt-16 p-4 rounded-xl bg-white/5 border border-white/10 text-center text-xs text-neutral-400 max-w-xl mx-auto"
+        >
+          ℹ️
+          <em
+            >Ces projets sont des vitrines de démonstration illustrant le niveau
+            de qualité et de finition des livrables de Patco Design.</em
+          >
+        </div>
+      </section>
+    </main>
+
+    <!-- ================= PROJECT DETAILS MODAL ================= -->
+    <div id="project-modal" class="modal-overlay">
+      <div class="modal-content">
+        <div
+          class="flex items-center justify-between p-6 border-b border-white/10 bg-[#071528]"
+        >
+          <div>
+            <span
+              id="modal-category"
+              class="text-xs font-semibold text-[#38BDF8] uppercase tracking-wider"
+            ></span>
+            <h3
+              id="modal-title"
+              class="text-xl font-bold text-white font-heading mt-1"
+            ></h3>
+          </div>
+          <button
+            id="project-modal-close"
+            class="p-2 text-neutral-400 hover:text-white rounded-lg cursor-pointer"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+        <div class="p-6 space-y-6">
+          <div class="rounded-xl overflow-hidden aspect-[16/9] bg-black">
+            <img
+              id="modal-image"
+              src=""
+              alt="Aperçu projet"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div
+            class="grid grid-cols-2 sm:grid-cols-4 gap-4 p-4 rounded-xl bg-white/5 border border-white/10 text-xs"
+          >
+            <div>
+              <span class="text-neutral-400 block">Client</span
+              ><strong id="modal-client" class="text-white"></strong>
+            </div>
+            <div>
+              <span class="text-neutral-400 block">Année</span
+              ><strong id="modal-year" class="text-white"></strong>
+            </div>
+            <div class="col-span-2">
+              <span class="text-neutral-400 block mb-1"
+                >Outils & Technologies</span
+              >
+              <div id="modal-tools" class="flex flex-wrap gap-1.5"></div>
+            </div>
+          </div>
+          <div
+            class="space-y-4 text-xs sm:text-sm text-neutral-300 leading-relaxed"
+          >
+            <div>
+              <h4 class="text-white font-bold mb-1">Problématique / Défi</h4>
+              <p id="modal-problem"></p>
+            </div>
+            <div>
+              <h4 class="text-white font-bold mb-1">Solution apportée</h4>
+              <p id="modal-solution"></p>
+            </div>
+            <div>
+              <h4 class="text-white font-bold mb-1">Résultats obtenus</h4>
+              <p id="modal-result" class="text-emerald-400 font-semibold"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= FOOTER ================= -->
+    <footer
+      class="bg-[#071528] border-t border-white/10 pt-16 pb-12 text-sm text-neutral-400"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+          <div class="space-y-4">
+            <div class="flex items-center gap-2">
+              <div
+                class="w-8 h-8 rounded-lg bg-[#2563EB] flex items-center justify-center text-white font-bold text-sm"
+              >
+                PG
+              </div>
+              <span class="text-white font-bold text-base font-heading"
+                >Patco Design</span
+              >
+            </div>
+            <p class="text-xs text-neutral-400 leading-relaxed">
+              Studio créatif ivoirien spécialisé en design graphique de pointe
+              et dévéloppement web.
+            </p>
+            <div class="text-xs text-[#38BDF8] font-mono">
+              Abidjan, Côte d’Ivoire.
+            </div>
+          </div>
+
+          <div>
+            <div
+              class="text-white font-bold text-xs uppercase tracking-wider mb-4 font-heading"
+            >
+              Navigation
+            </div>
+            <ul class="space-y-2 text-xs">
+              <li>
+                <a href="index.html" class="hover:text-white transition-colors"
+                  >Accueil</a
+                >
+              </li>
+              <li>
+                <a
+                  href="a-propos.html"
+                  class="hover:text-white transition-colors"
+                  >À propos</a
+                >
+              </li>
+              <li>
+                <a
+                  href="services.html"
+                  class="hover:text-white transition-colors"
+                  >Mes Services</a
+                >
+              </li>
+              <li>
+                <a
+                  href="portfolio.html"
+                  class="hover:text-white transition-colors"
+                  >Portfolio & Réalisations</a
+                >
+              </li>
+              <li>
+                <a
+                  href="processus.html"
+                  class="hover:text-white transition-colors"
+                  >Méthode de travail</a
+                >
+              </li>
+              <li>
+                <a href="devis.html" class="hover:text-white transition-colors"
+                  >Demander un Devis</a
+                >
+              </li>
+              <li>
+                <a
+                  href="contact.html"
+                  class="hover:text-white transition-colors"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <div
+              class="text-white font-bold text-xs uppercase tracking-wider mb-4 font-heading"
+            >
+              Services
+            </div>
+            <ul class="space-y-2 text-xs">
+              <li>
+                <a
+                  href="services.html#design-graphique"
+                  class="hover:text-white transition-colors"
+                  >Identité Visuelle & Logo</a
+                >
+              </li>
+              <li>
+                <a
+                  href="services.html#design-graphique"
+                  class="hover:text-white transition-colors"
+                  >Affiches, Flyers & Print</a
+                >
+              </li>
+              <li>
+                <a
+                  href="services.html#developpement-web"
+                  class="hover:text-white transition-colors"
+                  >Site Web Vitrine & Landing Page</a
+                >
+              </li>
+              <li>
+                <a
+                  href="services.html#developpement-web"
+                  class="hover:text-white transition-colors"
+                  >Application Web & Dashboard</a
+                >
+              </li>
+              <li>
+                <a
+                  href="services.html#identite-communication"
+                  class="hover:text-white transition-colors"
+                  >Stratégie Réseaux Sociaux</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="space-y-4">
+            <div
+              class="text-white font-bold text-xs uppercase tracking-wider mb-4 font-heading"
+            >
+              Contact Direct
+            </div>
+            <p class="text-xs text-neutral-300">
+              Téléphone / WhatsApp :<br />
+              <a
+                href="tel:+2250759142041"
+                class="text-white font-semibold hover:text-[#38BDF8]"
+                >+225 0759142041</a
+              >
+            </p>
+            <p class="text-xs text-neutral-300">
+              Email professionnel :<br />
+              <a
+                href="mailto:kyaopacome76@gmail.com"
+                class="text-white font-semibold hover:text-[#38BDF8]"
+                >kyaopacome76@gmail.com</a
+              >
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs text-neutral-400 gap-4"
+        >
+          <div>
+            © 2026 Patco Design. Tous droits réservés. Conçu et développé en
+            Côte d’Ivoire.
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ================= FLOATING WHATSAPP BUTTON ================= -->
+    <a
+      href="https://wa.me/2250759142041?text=Bonjour%20Patco%20Design,%20je%20souhaite%20discuter%20d%E2%80%99un%20projet%20avec%20vous."
+      target="_blank"
+      rel="noopener noreferrer"
+      class="fixed bottom-6 right-6 z-40 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white p-3.5 rounded-full shadow-2xl shadow-emerald-500/30 flex items-center gap-2 group transition-all duration-300 hover:scale-105"
+      aria-label="Contacter sur WhatsApp"
+    >
+      <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+        <path
+          d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"
+        />
+      </svg>
+      <span class="text-xs font-bold pr-1 hidden sm:inline"
+        >WhatsApp Direct</span
+      >
+    </a>
+
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>

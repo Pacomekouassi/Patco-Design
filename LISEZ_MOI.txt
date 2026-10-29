@@ -1,0 +1,62 @@
+================================================================================
+PATCO GESIGN — SITE WEB MULTIPAGE EN HTML5, CSS3 ET JAVASCRIPT
+================================================================================
+
+Bonjour Patco !
+Voici l'intégralité du site web en HTML, CSS et JavaScript purs, sans aucune
+dépendance technique (pas besoin de Node.js, npm ou terminal pour l'utiliser).
+
+--------------------------------------------------------------------------------
+1. ORGANISATION CLAIRE DU DOSSIER :
+--------------------------------------------------------------------------------
+
+patco-gesign-studio/
+├── index.html               -> Page d'accueil avec Hero, Studio, Services, Portfolio, etc.
+├── a-propos.html            -> Page À propos avec portrait de Patco, bio et statistiques
+├── services.html            -> Page détaillée des services et livrables
+├── portfolio.html           -> Galerie avec filtres interactifs (Tous, Graphisme, Web, etc.)
+├── processus.html           -> Méthodologie en 5 étapes de travail
+├── devis.html               -> Simulateur de devis instantané avec lien WhatsApp direct
+├── contact.html             -> Coordonnées, téléphone, email et formulaire
+├── DEMARRER_LE_SITE.bat     -> Double-cliquez sous Windows pour ouvrir le site directement !
+│
+├── 📁 css/
+│   └── style.css            -> Styles complets (#0B1F3A bleu nuit & #2563EB bleu cobalt)
+│
+├── 📁 js/
+│   └── main.js              -> Menu mobile, modales, filtres de projets et devis
+│
+└── 📁 assets/images/        -> Photos HD du studio et des projets :
+    ├── studio-production.jpg   (Photo studio de production du Hero)
+    ├── patco-portrait.jpg      (Portrait officiel de Patco)
+    ├── project-branding.jpg    (Projet Kanya Cacao & Café)
+    ├── project-web.jpg         (Projet AfriPay Web App)
+    ├── project-poster.jpg      (Projet Festival Afro-Futur N'Zassa)
+    └── creative-workspace.jpg  (Bureau de travail créatif)
+
+--------------------------------------------------------------------------------
+2. COMMENT VISUALISER LE SITE IMMEDIATEMENT :
+--------------------------------------------------------------------------------
+- Méthode 1 : Double-cliquez sur "DEMARRER_LE_SITE.bat" (sous Windows).
+- Méthode 2 : Double-cliquez directement sur "index.html" dans votre explorateur.
+Le site s'ouvre directement dans votre navigateur (Chrome, Edge, Firefox, Safari).
+
+--------------------------------------------------------------------------------
+3. COMMENT EDITER LE CODE DANS VISUAL STUDIO CODE :
+--------------------------------------------------------------------------------
+1. Ouvrez Visual Studio Code.
+2. Allez dans le menu : Fichier > Ouvrir le dossier... (File > Open Folder...).
+3. Sélectionnez le dossier décompressé "patco-gesign-studio".
+4. Vous pouvez modifier n'importe quel fichier (.html, .css, .js).
+   (Astuce : Installez l'extension "Live Server" dans VS Code pour voir
+   vos modifications se recharger automatiquement à chaque enregistrement).
+
+--------------------------------------------------------------------------------
+4. INFORMATIONS DE CONTACT DE PATCO GESIGN :
+--------------------------------------------------------------------------------
+- Studio : Patco Gesign
+- Téléphone / WhatsApp : +225 0759142041
+- Email : kyaopacome76@gmail.com
+- Localisation : Abidjan, Côte d'Ivoire 🇨🇮
+- Couleurs de la marque : #2563EB (Bleu cobalt) & #0B1F3A (Bleu nuit profond)
+================================================================================
