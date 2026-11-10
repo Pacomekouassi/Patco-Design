@@ -1,5 +1,5 @@
 /* ==========================================================================
-   PATCO GESIGN — Studio Créatif & Ingénierie Digitale Ivoirien
+   PATCO DESIGN — Studio Créatif & Ingénierie Digitale Ivoirien
    Charte graphique : #0B1F3A (Bleu nuit profond) & #2563EB (Bleu cobalt royal)
    Typographies : Montserrat (Titres) & Poppins (Textes et sous-titres)
    ========================================================================== */
@@ -243,17 +243,6 @@ h6,
 
 .modal-overlay.active .modal-content {
   transform: scale(1);
-}
-
-/* Project filter animation */
-.portfolio-item {
-  transition: all 0.4s ease;
-}
-
-.portfolio-item.hidden {
-  display: none;
-  opacity: 0;
-  transform: scale(0.9);
 }
 
 /* Pulse animation */
