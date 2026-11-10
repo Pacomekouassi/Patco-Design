@@ -22,8 +22,8 @@ const HEADER_URL = "components/header.html";
 const FOOTER_URL = "components/footer.html";
 
 // Écran de chargement
-const PRELOADER_MIN_TIME = 5000; // durée minimale d'affichage (ms)
-const PRELOADER_MAX_TIME = 6000; // il ne bloque jamais plus longtemps (ms)
+const PRELOADER_MIN_TIME = 1800; // durée minimale d'affichage (ms)
+const PRELOADER_MAX_TIME = 4000; // il ne bloque jamais plus longtemps (ms)
 
 // Données des projets affichés dans la modale
 const projectsData = {
@@ -82,6 +82,118 @@ const projectsData = {
       "Création d’une affiche moderne mettant en valeur les caméras de surveillance, les clôtures électriques et les accessoires.",
     result:
       "Un visuel prêt à diffuser, cohérent avec l’image de l’entreprise.",
+  },
+  "proj-rahim": {
+    title: "Rahim Store",
+    category: "Design graphique & Affiches",
+    client: "Rahim Store",
+    year: "2026",
+    image: "assets/images/Rahim_Store.jpg",
+    tools: ["Photoshop"],
+    problem:
+      "Disposer d’un visuel publicitaire percutant, adapté au format carré des réseaux sociaux.",
+    solution:
+      "Création d’une affiche 1080 x 1080 px mettant en avant l’offre de la boutique avec une mise en page lisible.",
+    result:
+      "Un visuel prêt à diffuser, cohérent avec l’image du client.",
+  },
+  "proj-mobilemart": {
+    title: "Mobilemart",
+    category: "Design graphique & Affiches",
+    client: "Mobilemart",
+    year: "2026",
+    image: "assets/images/Mobilemart.jpg",
+    tools: ["Photoshop"],
+    problem:
+      "Promouvoir l’activité de Mobilemart avec un visuel moderne pour les réseaux sociaux.",
+    solution:
+      "Création d’une affiche 1080 x 1080 px avec une hiérarchie claire des informations.",
+    result:
+      "Un visuel prêt à diffuser, cohérent avec l’image du client.",
+  },
+  "proj-aziz-logo": {
+    title: "Abdoul Aziz Store — Logo",
+    category: "Branding & Identité",
+    client: "Abdoul Aziz Store",
+    year: "2026",
+    image: "assets/images/Logo_Abdoul_Aziz.jpg",
+    tools: ["Adobe Illustrator"],
+    problem:
+      "Le client avait besoin d’un logo simple et professionnel pour identifier sa boutique.",
+    solution:
+      "Conception d’un logo vectoriel lisible, facile à décliner sur affiches, réseaux sociaux et supports imprimés.",
+    result:
+      "Un logo vectoriel livré dans tous les formats utiles.",
+  },
+  "proj-aziz-flyer": {
+    title: "Abdoul Aziz Store — Flyer",
+    category: "Design graphique & Affiches",
+    client: "Abdoul Aziz Store",
+    year: "2026",
+    image: "assets/images/Flyer-Aziz.jpg",
+    tools: ["Photoshop"],
+    problem:
+      "Présenter clairement les produits et services de la boutique sur les réseaux sociaux.",
+    solution:
+      "Création d’un flyer carré 1080 x 1080 px, structuré et cohérent avec le logo.",
+    result:
+      "Un visuel prêt à diffuser, cohérent avec l’image du client.",
+  },
+  "proj-maquis": {
+    title: "Maquis Class A",
+    category: "Design graphique & Affiches",
+    client: "Maquis Class A",
+    year: "2026",
+    image: "assets/images/Maquis-resto.jpg",
+    tools: ["Photoshop"],
+    problem:
+      "Attirer l’attention des passants et valoriser l’offre du maquis.",
+    solution:
+      "Création d’une affiche grand format (2 m x 1 m) lisible de loin et fidèle à l’ambiance de l’établissement.",
+    result:
+      "Un visuel prêt à diffuser, cohérent avec l’image du client.",
+  },
+  "proj-carte-patco": {
+    title: "Carte de visite Patco Design",
+    category: "Branding & Identité",
+    client: "Patco Design",
+    year: "2026",
+    image: "assets/images/Carte-de-visite.jpg",
+    tools: ["Photoshop"],
+    problem:
+      "Disposer d’une carte de visite professionnelle reflétant l’identité de la marque.",
+    solution:
+      "Création d’une carte au format 85 x 55 mm, aux couleurs de la charte Patco Design.",
+    result:
+      "Un visuel prêt à diffuser, cohérent avec l’image du client.",
+  },
+  "proj-kone-comara": {
+    title: "Koné et Comara",
+    category: "Design graphique & Affiches",
+    client: "Koné et Comara",
+    year: "2026",
+    image: "assets/images/Design_1.jpg",
+    tools: ["Photoshop"],
+    problem:
+      "Concevoir un support imprimable compact et lisible.",
+    solution:
+      "Création d’une affiche au format A6, prête pour l’impression.",
+    result:
+      "Un visuel prêt à diffuser, cohérent avec l’image du client.",
+  },
+  "proj-elyon": {
+    title: "Elyon Business",
+    category: "Design graphique & Affiches",
+    client: "Elyon Business",
+    year: "2026",
+    image: "assets/images/Exercice-1.jpg",
+    tools: ["Photoshop"],
+    problem:
+      "Communiquer sur l’activité d’Elyon Business avec un visuel soigné.",
+    solution:
+      "Création d’une affiche publicitaire 1080 x 1080 px adaptée aux réseaux sociaux.",
+    result:
+      "Un visuel prêt à diffuser, cohérent avec l’image du client.",
   },
   "proj-ayaglow": {
     title: "Aya Glow Skincare — Campagne Réseaux",
@@ -265,8 +377,9 @@ function initPortfolioFilters() {
         if (visible) {
           item.style.display = "block";
           setTimeout(() => {
-            item.style.opacity = "1";
-            item.style.transform = "translateY(0)";
+            // On retire les styles inline pour ne pas bloquer l'effet de survol
+            item.style.opacity = "";
+            item.style.transform = "";
           }, 50);
         } else {
           item.style.opacity = "0";
