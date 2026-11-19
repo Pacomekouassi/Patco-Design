@@ -80,8 +80,7 @@ const projectsData = {
       "Promouvoir une gamme de matériels de sécurité et d’équipements électriques avec un visuel clair et professionnel pour les réseaux sociaux.",
     solution:
       "Création d’une affiche moderne mettant en valeur les caméras de surveillance, les clôtures électriques et les accessoires.",
-    result:
-      "Un visuel prêt à diffuser, cohérent avec l’image de l’entreprise.",
+    result: "Un visuel prêt à diffuser, cohérent avec l’image de l’entreprise.",
   },
   "proj-rahim": {
     title: "Rahim Store",
@@ -94,8 +93,7 @@ const projectsData = {
       "Disposer d’un visuel publicitaire percutant, adapté au format carré des réseaux sociaux.",
     solution:
       "Création d’une affiche 1080 x 1080 px mettant en avant l’offre de la boutique avec une mise en page lisible.",
-    result:
-      "Un visuel prêt à diffuser, cohérent avec l’image du client.",
+    result: "Un visuel prêt à diffuser, cohérent avec l’image du client.",
   },
   "proj-mobilemart": {
     title: "Mobilemart",
@@ -108,8 +106,7 @@ const projectsData = {
       "Promouvoir l’activité de Mobilemart avec un visuel moderne pour les réseaux sociaux.",
     solution:
       "Création d’une affiche 1080 x 1080 px avec une hiérarchie claire des informations.",
-    result:
-      "Un visuel prêt à diffuser, cohérent avec l’image du client.",
+    result: "Un visuel prêt à diffuser, cohérent avec l’image du client.",
   },
   "proj-aziz-logo": {
     title: "Abdoul Aziz Store — Logo",
@@ -122,8 +119,7 @@ const projectsData = {
       "Le client avait besoin d’un logo simple et professionnel pour identifier sa boutique.",
     solution:
       "Conception d’un logo vectoriel lisible, facile à décliner sur affiches, réseaux sociaux et supports imprimés.",
-    result:
-      "Un logo vectoriel livré dans tous les formats utiles.",
+    result: "Un logo vectoriel livré dans tous les formats utiles.",
   },
   "proj-aziz-flyer": {
     title: "Abdoul Aziz Store — Flyer",
@@ -136,8 +132,7 @@ const projectsData = {
       "Présenter clairement les produits et services de la boutique sur les réseaux sociaux.",
     solution:
       "Création d’un flyer carré 1080 x 1080 px, structuré et cohérent avec le logo.",
-    result:
-      "Un visuel prêt à diffuser, cohérent avec l’image du client.",
+    result: "Un visuel prêt à diffuser, cohérent avec l’image du client.",
   },
   "proj-maquis": {
     title: "Maquis Class A",
@@ -146,12 +141,10 @@ const projectsData = {
     year: "2026",
     image: "assets/images/Maquis-resto.jpg",
     tools: ["Photoshop"],
-    problem:
-      "Attirer l’attention des passants et valoriser l’offre du maquis.",
+    problem: "Attirer l’attention des passants et valoriser l’offre du maquis.",
     solution:
       "Création d’une affiche grand format (2 m x 1 m) lisible de loin et fidèle à l’ambiance de l’établissement.",
-    result:
-      "Un visuel prêt à diffuser, cohérent avec l’image du client.",
+    result: "Un visuel prêt à diffuser, cohérent avec l’image du client.",
   },
   "proj-carte-patco": {
     title: "Carte de visite Patco Design",
@@ -164,8 +157,7 @@ const projectsData = {
       "Disposer d’une carte de visite professionnelle reflétant l’identité de la marque.",
     solution:
       "Création d’une carte au format 85 x 55 mm, aux couleurs de la charte Patco Design.",
-    result:
-      "Un visuel prêt à diffuser, cohérent avec l’image du client.",
+    result: "Un visuel prêt à diffuser, cohérent avec l’image du client.",
   },
   "proj-kone-comara": {
     title: "Koné et Comara",
@@ -174,12 +166,9 @@ const projectsData = {
     year: "2026",
     image: "assets/images/Design_1.jpg",
     tools: ["Photoshop"],
-    problem:
-      "Concevoir un support imprimable compact et lisible.",
-    solution:
-      "Création d’une affiche au format A6, prête pour l’impression.",
-    result:
-      "Un visuel prêt à diffuser, cohérent avec l’image du client.",
+    problem: "Concevoir un support imprimable compact et lisible.",
+    solution: "Création d’une affiche au format A6, prête pour l’impression.",
+    result: "Un visuel prêt à diffuser, cohérent avec l’image du client.",
   },
   "proj-elyon": {
     title: "Elyon Business",
@@ -192,8 +181,7 @@ const projectsData = {
       "Communiquer sur l’activité d’Elyon Business avec un visuel soigné.",
     solution:
       "Création d’une affiche publicitaire 1080 x 1080 px adaptée aux réseaux sociaux.",
-    result:
-      "Un visuel prêt à diffuser, cohérent avec l’image du client.",
+    result: "Un visuel prêt à diffuser, cohérent avec l’image du client.",
   },
   "proj-ayaglow": {
     title: "Aya Glow Skincare — Campagne Réseaux",
@@ -299,22 +287,34 @@ function initPreloader() {
    ========================================================================== */
 
 /** Menu mobile : ouverture, fermeture, fermeture au clic sur un lien. */
+/** Menu mobile : tiroir latéral à droite. */
 function initMobileMenu() {
+  const drawer = document.getElementById("mobile-drawer");
+  const overlay = document.getElementById("mobile-overlay");
   const openBtn = document.getElementById("mobile-menu-btn");
   const closeBtn = document.getElementById("mobile-menu-close");
-  const menu = document.getElementById("mobile-menu");
-  if (!menu) return;
+  if (!drawer || !overlay || !openBtn || !closeBtn) return;
 
-  openBtn?.addEventListener("click", () => {
-    menu.classList.toggle("hidden");
+  const setMenu = (open) => {
+    drawer.classList.toggle("open", open);
+    overlay.classList.toggle("open", open);
+    document.body.classList.toggle("menu-open", open);
+    drawer.setAttribute("aria-hidden", open ? "false" : "true");
+    openBtn.setAttribute("aria-expanded", open ? "true" : "false");
+    if (open) closeBtn.focus();
+  };
+
+  openBtn.addEventListener("click", () => setMenu(true));
+  closeBtn.addEventListener("click", () => setMenu(false));
+  overlay.addEventListener("click", () => setMenu(false));
+  drawer.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => setMenu(false));
   });
-
-  closeBtn?.addEventListener("click", () => {
-    menu.classList.add("hidden");
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") setMenu(false);
   });
-
-  menu.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => menu.classList.add("hidden"));
+  window.addEventListener("resize", () => {
+    if (window.innerWidth >= 1024) setMenu(false);
   });
 }
 
@@ -327,7 +327,7 @@ function initActiveNav() {
 
   const currentPage = normalize(window.location.pathname);
 
-  document.querySelectorAll(".nav-link, .mobile-nav-link").forEach((link) => {
+  document.querySelectorAll(".nav-link, .drawer-link").forEach((link) => {
     const href = link.getAttribute("href");
     if (!href) return;
 
@@ -335,12 +335,7 @@ function initActiveNav() {
     const target = normalize(href.split("#")[0].split("?")[0]);
     if (target !== currentPage) return;
 
-    link.classList.add("active", "text-white", "font-bold");
-
-    if (link.classList.contains("mobile-nav-link")) {
-      link.classList.remove("text-neutral-300");
-      link.classList.add("bg-white/5");
-    }
+    link.classList.add("active");
   });
 }
 
