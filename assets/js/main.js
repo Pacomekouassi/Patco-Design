@@ -747,6 +747,130 @@ function initImageZoom() {
    DÉMARRAGE
    ========================================================================== */
 
+/* ==========================================================================
+   ANIMATION DE FOND DU HERO (réseau de particules)
+   ========================================================================== */
+
+function initHeroBackground() {
+  const canvas = document.getElementById("hero-bg");
+  if (!canvas) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  const ctx = canvas.getContext("2d");
+  const parent = canvas.parentElement;
+  const LINK_DISTANCE = 130;
+  const MOUSE_RADIUS = 160;
+  const mouse = { x: -9999, y: -9999 };
+
+  let width = 0;
+  let height = 0;
+  let particles = [];
+  let rafId = null;
+  let visible = true;
+
+  function resize() {
+    const rect = parent.getBoundingClientRect();
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    width = rect.width;
+    height = rect.height;
+    canvas.width = width * dpr;
+    canvas.height = height * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    // Moins de particules sur petit écran, pour rester fluide
+    const count = Math.min(90, Math.floor((width * height) / 16000));
+    particles = Array.from({ length: count }, () => ({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      vx: (Math.random() - 0.5) * 0.4,
+      vy: (Math.random() - 0.5) * 0.4,
+      r: Math.random() * 1.6 + 0.8,
+    }));
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, width, height);
+
+    for (const p of particles) {
+      // Légère fuite devant la souris
+      const dx = p.x - mouse.x;
+      const dy = p.y - mouse.y;
+      const dist = Math.hypot(dx, dy);
+      if (dist < MOUSE_RADIUS && dist > 0) {
+        const force = (1 - dist / MOUSE_RADIUS) * 0.6;
+        p.x += (dx / dist) * force;
+        p.y += (dy / dist) * force;
+      }
+
+      p.x += p.vx;
+      p.y += p.vy;
+      if (p.x < 0 || p.x > width) p.vx *= -1;
+      if (p.y < 0 || p.y > height) p.vy *= -1;
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = "rgba(56, 189, 248, 0.75)";
+      ctx.fill();
+    }
+
+    // Lignes entre particules proches
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const a = particles[i];
+        const b = particles[j];
+        const d = Math.hypot(a.x - b.x, a.y - b.y);
+        if (d < LINK_DISTANCE) {
+          ctx.strokeStyle = `rgba(37, 99, 235, ${0.35 * (1 - d / LINK_DISTANCE)})`;
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(b.x, b.y);
+          ctx.stroke();
+        }
+      }
+    }
+  }
+
+  function loop() {
+    draw();
+    rafId = requestAnimationFrame(loop);
+  }
+
+  function start() {
+    if (rafId === null && visible && !document.hidden) loop();
+  }
+
+  function stop() {
+    if (rafId !== null) {
+      cancelAnimationFrame(rafId);
+      rafId = null;
+    }
+  }
+
+  parent.addEventListener("mousemove", (e) => {
+    const rect = parent.getBoundingClientRect();
+    mouse.x = e.clientX - rect.left;
+    mouse.y = e.clientY - rect.top;
+  });
+  parent.addEventListener("mouseleave", () => {
+    mouse.x = mouse.y = -9999;
+  });
+
+  window.addEventListener("resize", resize);
+  document.addEventListener("visibilitychange", () =>
+    document.hidden ? stop() : start(),
+  );
+
+  // On met l'animation en pause quand le hero n'est plus à l'écran
+  new IntersectionObserver(([entry]) => {
+    visible = entry.isIntersecting;
+    visible ? start() : stop();
+  }).observe(parent);
+
+  resize();
+  start();
+}
+
 // L'écran de chargement démarre tout de suite, sans dépendre du reste
 initPreloader();
 
@@ -770,4 +894,5 @@ document.addEventListener("DOMContentLoaded", async () => {
   initContactForm();
   initStatsAnimation();
   initImageZoom();
+  initHeroBackground();
 });
